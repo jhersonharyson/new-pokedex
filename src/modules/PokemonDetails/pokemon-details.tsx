@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import { usePokemonInfo } from "./hooks/usePokemonInfo";
+import { useEffect, useState } from "react";
 import { BasicPokemonInfo } from "./components/BasicPokemonInfo/basic-pokemon-info";
 import { BasicPokemonStats } from "./components/BasicPokemonStats/basic-pokemon-stats";
 import { PokemonRoulletSelector } from "./components/PokemonRoulletSelector/pokemon-roullet-selector";
-// import type { PokemonDetailsProps } from "./@types";
-import * as S from './pokemon-details-styles'
+import { usePokemonInfo } from "./hooks/usePokemonInfo";
 import { getPokemonColor } from "./utils/getPokemonColor";
+import * as S from './pokemon-details-styles';
 
 const PokemonDetails = () => {
 
-  const [pokemonName] = useState("bulbasaur")
-  const pokemon = usePokemonInfo(pokemonName)
+  const [pokemonId, setPokemonId] = useState(1)
+  const pokemon = usePokemonInfo(pokemonId)
   const [pokemonPaletteColor, setPokemonPaletteColor] = useState<string>()
 
 
@@ -31,7 +30,7 @@ const PokemonDetails = () => {
       <S.Main>
         <BasicPokemonInfo pokemon={pokemon} />
         <BasicPokemonStats pokemon={pokemon} />
-        <PokemonRoulletSelector pokemon={pokemon} />
+        <PokemonRoulletSelector pokemon={pokemon} onSelect={(pokemonId) => setPokemonId(pokemonId)} />
       </S.Main>
       <S.Background color={pokemonPaletteColor}></S.Background>
     </S.Container>

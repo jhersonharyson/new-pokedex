@@ -24,7 +24,8 @@ export const Main = styled.div`
     }
 
     .basic-stats {
-        flex-grow: 1.5;
+        /* flex-grow: 1.5; */
+        margin: 0px 32px;
     }
 
     .roullet-selector {

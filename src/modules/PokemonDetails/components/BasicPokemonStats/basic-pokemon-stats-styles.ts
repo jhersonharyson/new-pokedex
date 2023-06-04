@@ -30,7 +30,6 @@ export const ContainerPokemonType = styled.div`
     border: 3px solid #000000aa;
     
     background-clip: text;
-    margin-bottom: 16px;
 `
 
 export const BasicStat = styled.p`
@@ -63,6 +62,25 @@ export const PokemonTypeImage = styled.img`
     /* filter: invert(); */
     color: transparent;
 `
+
+export const PokemonTypeText = styled.div`
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FFFFFF5C;
+    text-transform: uppercase;
+    border-radius: 32px;
+    padding: 2px 24px;
+`
+
+export const MainPokemonTypeContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+
+`
+
 export const Separator = styled.div`
     /* height:  100%; */
     width: 6px;

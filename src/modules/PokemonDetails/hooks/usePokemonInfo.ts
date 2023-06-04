@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { IPokeApiGetPokemonResponse, IPokemonInfo } from "../@types";
 import { filterPokemonInfo } from "../utils/filterPokemonInfo";
 
-const URL = (pokemonName: string) =>
+const URL = (pokemonName: number) =>
     `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
-export const usePokemonInfo = (pokemonName: string): IPokemonInfo => {
+export const usePokemonInfo = (pokemonName: number): IPokemonInfo => {
     const [pokemon, setPokemon] = useState<IPokemonInfo>({} as IPokemonInfo);
 
     useEffect(() => {

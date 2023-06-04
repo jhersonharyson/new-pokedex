@@ -48,6 +48,7 @@ export const BasicStat = styled.p`
         background-color: unset;
         border-radius: unset;
         line-height: 36px;
+        margin-top: 0px;
         margin-bottom: 12px;
         padding: 0;
         color: #FFFFFF;

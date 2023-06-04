@@ -52,7 +52,16 @@ export const BasicStat = styled.p`
         padding: 0;
         color: #FFFFFF;
     }
+
+    &.thin {
+        font-weight: 400;
+    }
 `;
+
+export const BaseStatRow = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 
 
 

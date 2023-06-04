@@ -3,7 +3,13 @@ import * as S from './basic-pokemon-stats-styles';
 
 const BasicPokemonStats = ({ pokemon }: BasicPokemonStatsProps) => {
 
-	const stats = Array.from(pokemon.stats).map(stat => <S.BasicStat key={stat.name}>{stat.name}: {stat.value}</S.BasicStat>)
+	const stats = Array.from(pokemon.stats).map(stat => (
+		<S.BaseStatRow key={stat.name}>
+			<S.BasicStat>{stat.name}</S.BasicStat>
+			<S.BasicStat className="thin"> {stat.value}</S.BasicStat>
+		</S.BaseStatRow>
+	))
+	
 	const types = Array.from(pokemon.types).map(type => (
 		<S.MainPokemonTypeContainer key={type}>
 			<S.ContainerPokemonType>

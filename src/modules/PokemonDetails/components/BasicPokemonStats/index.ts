@@ -1,0 +1,1 @@
+export { BasicPokemonStats } from './basic-pokemon-stats';

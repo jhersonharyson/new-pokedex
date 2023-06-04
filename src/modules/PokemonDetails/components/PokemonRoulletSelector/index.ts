@@ -1,0 +1,1 @@
+export { default as PokemonRoulletSelectorTag } from './pokemon-roullet-selector';

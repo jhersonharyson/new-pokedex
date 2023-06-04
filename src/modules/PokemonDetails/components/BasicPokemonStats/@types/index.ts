@@ -1,0 +1,1 @@
+export * from './basic-pokemon-stats-props.interface';

@@ -1,0 +1,1 @@
+export * from './pokemon-roullet-selector-props.interface';

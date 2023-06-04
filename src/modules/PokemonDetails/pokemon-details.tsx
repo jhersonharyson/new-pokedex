@@ -9,7 +9,7 @@ import { getPokemonColor } from "./utils/getPokemonColor";
 
 const PokemonDetails = () => {
 
-  const [pokemonName] = useState("charmander")
+  const [pokemonName] = useState("bulbasaur")
   const pokemon = usePokemonInfo(pokemonName)
   const [pokemonPaletteColor, setPokemonPaletteColor] = useState<string>()
 

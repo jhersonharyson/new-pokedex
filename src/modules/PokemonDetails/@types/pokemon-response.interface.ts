@@ -5,6 +5,7 @@ export interface IPokeApiGetPokemonResponse extends IPokemonBasicInfo {
   stats: { stat: { name: string }, base_stat: number }[];
   types: { type: { name: string } }[];
 
+  species: { url: string }
   sprites: {
     other: {
       "official-artwork": {

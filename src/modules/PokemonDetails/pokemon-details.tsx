@@ -4,10 +4,10 @@ import { BasicPokemonStats } from "./components/BasicPokemonStats/basic-pokemon-
 import { PokemonRoulletSelector } from "./components/PokemonRoulletSelector/pokemon-roullet-selector";
 import { usePokemonInfo } from "./hooks/usePokemonInfo";
 import { getPokemonColor } from "./utils/getPokemonColor";
+
 import * as S from './pokemon-details-styles';
 
 const PokemonDetails = () => {
-
   const [pokemonId, setPokemonId] = useState(1)
   const pokemon = usePokemonInfo(pokemonId)
   const [pokemonPaletteColor, setPokemonPaletteColor] = useState<string>()
@@ -22,6 +22,7 @@ const PokemonDetails = () => {
       fetchPokemonColor(pokemon.sprites.artwork)
     }
   }, [pokemon])
+
 
   if (!pokemon.name) return null;
 

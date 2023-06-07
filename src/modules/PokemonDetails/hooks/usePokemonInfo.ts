@@ -1,26 +1,32 @@
+import { useEffect, useState } from 'react';
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useQueryClient } from '@tanstack/react-query';
+
 import { IPokeApiGetPokemonResponse, IPokemonInfo } from "../@types";
 import { filterPokemonInfo } from "../utils/filterPokemonInfo";
 
-const URL = (pokemonName: number) =>
-    `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+const URL = (pokemonId: number) =>
+    `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 
-export const usePokemonInfo = (pokemonName: number): IPokemonInfo => {
+const pokemonFetcher = async (pokemonId: number) => {
+    const { data } = await axios.get<IPokeApiGetPokemonResponse>(URL(pokemonId))
+    return data
+};
+
+export const usePokemonInfo = (pokemonId: number): IPokemonInfo => {
     const [pokemon, setPokemon] = useState<IPokemonInfo>({} as IPokemonInfo);
+    const queryClient = useQueryClient();
 
     useEffect(() => {
-        const fetchPokemonInfo = async () => {
-            try {
-                const response = await axios.get<IPokeApiGetPokemonResponse>(URL(pokemonName));
-                setPokemon(filterPokemonInfo(response.data));
-            } catch (error) {
-                console.log("Error fetching Pokemon data:", error);
-            }
-        };
+        const fetchData = async () => {
+            const data = await queryClient.fetchQuery({ queryKey: ['pokemon', pokemonId], queryFn: () => pokemonFetcher(pokemonId) })
+            setPokemon(filterPokemonInfo(data));
+        }
+        fetchData();
+    }, [pokemonId, queryClient]);
 
-        fetchPokemonInfo();
-    }, [pokemonName]);
+    if (!pokemon)
+        return {} as IPokemonInfo
 
-    return pokemon;
+    return pokemon
 };

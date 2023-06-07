@@ -12,6 +12,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.12",
     "axios": "^1.4.0",
     "color.js": "^1.2.0",
     "pokemon": "^2.3.5",

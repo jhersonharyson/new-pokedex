@@ -1,10 +1,10 @@
 import { BasicPokemonInfoProps } from './@types';
-import { usePokemonLocation } from './hooks/usePokemonLocation';
+import { usePokemonRegion } from './hooks/usePokemonRegion';
 import { getPokemonJapaneseName } from './utils/getPokemonJapaneseName';
 import * as S from './basic-pokemon-info-styles';
 
 const BasicPokemonInfo = ({ pokemon }: BasicPokemonInfoProps) => {
-	const pokemonLocation = usePokemonLocation(pokemon.id)
+	const pokemonLocation = usePokemonRegion(pokemon.id)
 	const japanesePokemon = getPokemonJapaneseName(pokemon.id)
 
 

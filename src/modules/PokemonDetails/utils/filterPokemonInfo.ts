@@ -11,6 +11,7 @@ const filterPokemonInfo = (pokemon: IPokeApiGetPokemonResponse): IPokemonInfo =>
     filtered.is_default = pokemon.is_default
     filtered.order = pokemon.order
     filtered.weight = pokemon.weight
+    filtered.species = pokemon.species.url
     filtered.moves = pokemon.moves.map(({ move }) => move.name.replace(/-/g, " "))
     filtered.types = pokemon.types.map(({ type }) => type.name.replace(/-/g, " "))
     filtered.stats = pokemon.stats.map(({ stat, base_stat }) => ({ name: stat.name.replace(/-/g, " "), value: base_stat }))
